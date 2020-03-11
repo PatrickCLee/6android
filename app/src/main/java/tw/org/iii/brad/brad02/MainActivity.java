@@ -1,5 +1,5 @@
 package tw.org.iii.brad.brad02;
-//猜數字,但已預設猜3碼,直接遊戲會以3碼checkAB
+//app的猜數字,但已預設猜3碼,直接遊戲會以3碼checkAB
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private EditText input;
     private TextView log;
-    private Button guess;
+    private Button guess;   //guess的onClick被寫在onCreate裡面,
     private String answer;
     private AlertDialog alertDialog = null;
     private int counter;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         guess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                guess();
+                guess();    //再把實際功能丟出去
             }
         });
         initNewGame(null);
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         Log.v("brad","answer = " + answer);
     }
 
-    private String createAnswer(int d){
+    private String createAnswer(int d){     //從java偷過來的
         int[] poker = new int[10];
         for (int i=0; i<poker.length; i++)poker[i]=i;
 
@@ -178,13 +178,13 @@ public class MainActivity extends AppCompatActivity {
     public void setting(View view) {
         showDialog3();
     }
-    //要記得改呼叫的method名稱
+    //可改呼叫的method名稱為1或2測試,3為正式功能
 
     private void showDialog1(){
         new AlertDialog.Builder(this)
                 .setTitle("info")
                 .setMessage("Hello, World")
-                .setCancelable(false)
+                .setCancelable(false)   //按畫面中其他地方可否退出此AlertDialog
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Info")
                 .setCancelable(false)
-                .setItems(items, new DialogInterface.OnClickListener() {
+                .setItems(items, new DialogInterface.OnClickListener() {//前參數為要顯示的值,需為CharSequence
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Log.v("brad","=> " + which);
@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
     private int tempDig;
 
     private void showDialog3(){
-        String[] items = {"3","4","5","6"};
+        String[] items = {"3","4","5","6"}; //預先準備好要顯示在Alert的值
         new AlertDialog.Builder(this)
                 .setTitle("猜幾碼")
                 .setCancelable(false)

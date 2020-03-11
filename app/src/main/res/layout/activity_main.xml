@@ -20,8 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:text="Guess"
-
-            />
+            />  <!-- 此處不寫guess的onClick,交給activity處 -->
         <!--Button非容器故自我了結,與配置有關是layout屬性,alignParentRight
             ,給id是因EditText需要說明 -->
         <EditText
@@ -93,7 +92,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:background="#ff0"
+        android:background="#fffad1"
         android:layout_below="@id/topLine"
         android:layout_above="@id/bottomLine"
         />
