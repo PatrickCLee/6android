@@ -1,5 +1,5 @@
 package tw.org.iii.brad.brad02;
-
+//猜數字,但已預設猜3碼,直接遊戲會以3碼checkAB
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 

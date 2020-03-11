@@ -1,5 +1,5 @@
 package tw.org.iii.brad.brad02;
-
+//猜數字
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
