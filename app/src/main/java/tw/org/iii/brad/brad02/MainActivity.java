@@ -149,7 +149,8 @@ public class MainActivity extends AppCompatActivity {
     public void exit(View view) {
         finish();
     }
-    //繼承來的method,呼叫後即會呼叫pause,stop,destroy
+    //finish是繼承來的method,呼叫後即會呼叫pause,stop,destroy
+    //在此呼叫即可退出
 
 
     @Override
@@ -157,13 +158,15 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
         Log.v("brad","onBackPressed()");
     }
-    //也是呼叫finish,但不知有無執行序,雖是由backPressed呼叫但Log.finish卻先出現
+    //返回鍵,此為源頭,若註解掉super則不會呼叫finish.但不知有無執行序,
+    //  雖是由backPressed呼叫finish但Log.finish卻先出現
+
 
     private long lastTime = 0;
 
     @Override
     public void finish() {
-        //super.finish();
+        //super.finish();   //呼叫super後即呼叫pause,stop,destroy
         Log.v("brad","finish()");
 
         if(System.currentTimeMillis() - lastTime <= 3*1000){
